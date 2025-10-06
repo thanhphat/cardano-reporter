@@ -124,11 +124,7 @@ async function reportSchedule(scheduleJson: string): Promise<void> {
         const scheduleData = JSON.parse(scheduleJson);
 
         console.log(`Sending schedule to ${API_ENDPOINT}...`);
-        const response = await axios.post(API_ENDPOINT!, {
-            poolId: STAKE_POOL_ID,
-            epoch: await getCurrentEpoch(), // Include the current epoch in the payload
-            schedule: scheduleData
-        });
+        const response = await axios.post(API_ENDPOINT!, scheduleData);
         console.log('API response status:', response.status);
     } catch (error) {
         console.error('Failed to report schedule to API:', error instanceof Error ? error.message : error);
