@@ -3,6 +3,13 @@ import { promises as fs } from 'fs';
 import axios from 'axios';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+console.log('__filename:', __filename);
+console.log('__dirname:', __dirname);
 
 // --- STEP 1: Load environment variables from .env file ---
 // This must be at the very top to make variables available to the rest of the code.
